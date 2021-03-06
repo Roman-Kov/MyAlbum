@@ -9,5 +9,5 @@ sealed class DataResult<out T> {
     object Process: DataResult<Nothing>()
 
     //получена ошибка
-    data class Error(val error: Throwable): DataResult<Nothing>()
+    data class Error(val error: Errors): DataResult<Nothing>()
 }

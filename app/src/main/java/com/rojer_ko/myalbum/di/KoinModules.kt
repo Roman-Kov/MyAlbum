@@ -2,10 +2,14 @@ package com.rojer_ko.myalbum.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.rojer_ko.myalbum.data.network.*
+import com.rojer_ko.myalbum.data.repository.AlbumsRepositoryImpl
 import com.rojer_ko.myalbum.data.retrofit.ApiService
+import com.rojer_ko.myalbum.domain.contracts.AlbumsRepository
+import com.rojer_ko.myalbum.presentation.viewmodel.AlbumsViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -49,4 +53,8 @@ val appModule = module {
     single { getOkHttpClient() }
     single { getRetrofit(get()) }
     single { getApi(get()) }
+    single<AlbumsRepository> { AlbumsRepositoryImpl(get(), get()) }
+
+    //ViewModels
+    viewModel { AlbumsViewModel(get()) }
 }
