@@ -1,0 +1,17 @@
+package com.rojer_ko.myalbum
+
+import android.app.Application
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
+
+class MyAlbumApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+
+        startKoin {
+            androidContext(this@MyAlbumApp)
+            modules(listOf())
+        }
+    }
+}
