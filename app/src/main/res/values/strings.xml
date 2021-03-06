@@ -3,4 +3,9 @@
     <string name="albums">Albums</string>
     <string name="saved_albums">Saved albums</string>
     <string name="location">Location</string>
+
+    <!-- Errors -->
+    <string name="data_error">Get data error</string>
+    <string name="network_unavailable_error">Check your internet connection</string>
+    <string name="unknown_error">Unknown error</string>
 </resources>
