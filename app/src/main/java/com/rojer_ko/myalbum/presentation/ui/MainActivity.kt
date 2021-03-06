@@ -1,7 +1,8 @@
-package com.rojer_ko.myalbum
+package com.rojer_ko.myalbum.presentation.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.rojer_ko.myalbum.R
 
 class MainActivity: AppCompatActivity() {
 
