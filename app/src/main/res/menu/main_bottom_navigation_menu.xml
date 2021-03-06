@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/albums_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_albums"
+        android:title="@string/albums"
+        android:visible="true" />
+    <item
+        android:id="@+id/saved_albums_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_saved_albums"
+        android:title="@string/saved_albums"
+        android:visible="true" />
+    <item
+        android:id="@+id/location_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_location"
+        android:title="@string/location"
+        android:visible="true" />
+</menu>

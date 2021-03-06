@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Padding -->
+    <dimen name="app_default_padding">15dp</dimen>
+
+    <!-- Margin -->
+    <dimen name="app_default_margin">15dp</dimen>
+    <dimen name="app_default_margin_horizontal">15dp</dimen>
+    <dimen name="app_default_margin_double">30dp</dimen>
+    <dimen name="app_default_margin_top">15dp</dimen>
+    <dimen name="app_default_margin_start">15dp</dimen>
+
+    <!-- Font sizes -->
+    <dimen name="app_default_text_18">18sp</dimen>
+    <dimen name="app_default_text_20">20sp</dimen>
+    <dimen name="app_default_text_30">30sp</dimen>
+</resources>
