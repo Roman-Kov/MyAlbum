@@ -14,4 +14,5 @@
     <dimen name="app_default_text_18">18sp</dimen>
     <dimen name="app_default_text_20">20sp</dimen>
     <dimen name="app_default_text_30">30sp</dimen>
+    <dimen name="toolbar_elevation">20dp</dimen>
 </resources>
