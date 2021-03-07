@@ -1,4 +1,4 @@
-package com.rojer_ko.myalbum.presentation.ui
+package com.rojer_ko.myalbum.presentation.albums.ui
 
 import com.rojer_ko.myalbum.R
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
@@ -17,12 +17,12 @@ class AlbumContainer(
         viewHolder.apply {
             album_title.text = albumTitle
             album_title.setOnClickListener {
-                onClick.onClick(albumId)
+                onClick.onClick(albumId, albumTitle)
             }
         }
     }
 
     interface ItemClick {
-        fun onClick(id: Int)
+        fun onClick(id: Int, title: String)
     }
 }

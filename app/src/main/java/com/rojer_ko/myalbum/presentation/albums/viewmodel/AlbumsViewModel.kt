@@ -1,4 +1,4 @@
-package com.rojer_ko.myalbum.presentation.viewmodel
+package com.rojer_ko.myalbum.presentation.albums.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

@@ -7,17 +7,27 @@
 
     <fragment
         android:id="@+id/albums_fragment"
-        android:name="com.rojer_ko.myalbum.presentation.ui.AlbumsFragment"
+        android:name="com.rojer_ko.myalbum.presentation.albums.ui.AlbumsFragment"
         android:label="fragment_albums"
-        tools:layout="@layout/fragment_albums" />
+        tools:layout="@layout/fragment_albums" >
+        <action
+            android:id="@+id/action_albums_fragment_to_albumFragment"
+            app:destination="@id/albumFragment"
+            app:launchSingleTop="true" />
+    </fragment>
     <fragment
         android:id="@+id/location_fragment"
-        android:name="com.rojer_ko.myalbum.presentation.ui.LocationFragment"
+        android:name="com.rojer_ko.myalbum.presentation.location.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
     <fragment
         android:id="@+id/saved_albums_fragment"
-        android:name="com.rojer_ko.myalbum.presentation.ui.SavedAlbumsFragment"
+        android:name="com.rojer_ko.myalbum.presentation.savedAlbums.SavedAlbumsFragment"
         android:label="fragment_saved_albums"
         tools:layout="@layout/fragment_saved_albums" />
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.rojer_ko.myalbum.presentation.albums.ui.AlbumFragment"
+        android:label="fragment_album"
+        tools:layout="@layout/fragment_album" />
 </navigation>

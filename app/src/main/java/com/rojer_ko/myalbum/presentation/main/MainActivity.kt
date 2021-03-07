@@ -1,4 +1,4 @@
-package com.rojer_ko.myalbum.presentation.ui
+package com.rojer_ko.myalbum.presentation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

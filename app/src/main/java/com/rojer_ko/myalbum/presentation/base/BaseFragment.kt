@@ -1,4 +1,4 @@
-package com.rojer_ko.myalbum.presentation.ui
+package com.rojer_ko.myalbum.presentation.base
 
 import android.os.Bundle
 import android.view.*
@@ -10,7 +10,7 @@ abstract class BaseFragment : Fragment() {
 
     abstract val layout: Int
     abstract val toolbarRes: Int
-    abstract val toolbarTitleRes: Int
+    abstract val toolbarTitleRes: Int?
     abstract val toolbarMenuRes: Int?
 
     override fun onCreateView(
@@ -25,19 +25,25 @@ abstract class BaseFragment : Fragment() {
         setToolbar(view)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        toolbarMenuRes?.let {
+            inflater.inflate(it, menu)
+            super.onCreateOptionsMenu(menu, inflater)
+        }
+    }
+
     private fun setToolbar(view: View) {
         val toolbar: Toolbar = view.findViewById(toolbarRes)
-        toolbar.title = resources.getString(toolbarTitleRes)
+        setToolbarTitle(toolbar)
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         toolbarMenuRes?.let {
             this.setHasOptionsMenu(true)
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        toolbarMenuRes?.let {
-            inflater.inflate(it, menu)
-            super.onCreateOptionsMenu(menu, inflater)
+    open fun setToolbarTitle(toolbar: Toolbar) {
+        toolbarTitleRes?.let {
+            toolbar.title = resources.getString(it)
         }
     }
 }

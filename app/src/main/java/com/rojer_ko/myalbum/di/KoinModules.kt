@@ -5,7 +5,8 @@ import com.rojer_ko.myalbum.data.network.*
 import com.rojer_ko.myalbum.data.repository.AlbumsRepositoryImpl
 import com.rojer_ko.myalbum.data.retrofit.ApiService
 import com.rojer_ko.myalbum.domain.contracts.AlbumsRepository
-import com.rojer_ko.myalbum.presentation.viewmodel.AlbumsViewModel
+import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumViewModel
+import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumsViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -57,4 +58,5 @@ val appModule = module {
 
     //ViewModels
     viewModel { AlbumsViewModel(get()) }
+    viewModel { AlbumViewModel(get()) }
 }

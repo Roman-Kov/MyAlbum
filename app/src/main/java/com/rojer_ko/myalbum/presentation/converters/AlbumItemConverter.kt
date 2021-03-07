@@ -1,7 +1,7 @@
 package com.rojer_ko.myalbum.presentation.converters
 
 import com.rojer_ko.myalbum.data.model.AlbumDTO
-import com.rojer_ko.myalbum.presentation.ui.AlbumContainer
+import com.rojer_ko.myalbum.presentation.albums.ui.AlbumContainer
 
 class AlbumItemConverter {
     companion object {

@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_default_white"
-    tools:context=".presentation.albums.ui.AlbumsFragment">
+    tools:context=".presentation.albums.ui.AlbumFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/albums_toolbar"
+        android:id="@+id/album_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/app_default_primary"
@@ -19,17 +19,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/albums_recyclerview"
+        android:id="@+id/album_recyclerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/albums_toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/album_toolbar" />
 
     <androidx.core.widget.ContentLoadingProgressBar
-        android:id="@+id/albums_progress_bar"
+        android:id="@+id/album_progress_bar"
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
