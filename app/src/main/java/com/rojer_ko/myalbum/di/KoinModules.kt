@@ -1,9 +1,12 @@
 package com.rojer_ko.myalbum.di
 
+import android.content.Context
+import androidx.room.Room
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.rojer_ko.myalbum.data.network.*
 import com.rojer_ko.myalbum.data.repository.AlbumsRepositoryImpl
 import com.rojer_ko.myalbum.data.retrofit.ApiService
+import com.rojer_ko.myalbum.data.room.DB
 import com.rojer_ko.myalbum.domain.contracts.AlbumsRepository
 import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumViewModel
 import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumsViewModel
@@ -49,11 +52,16 @@ private fun getApi(retrofit: Retrofit): ApiService {
     return retrofit.create(ApiService::class.java)
 }
 
+private fun getDB(context: Context): DB{
+    return Room.databaseBuilder(context, DB::class.java, "albumDB").build()
+}
+
 val appModule = module {
     single { NetworkManager(androidContext()) }
     single { getOkHttpClient() }
     single { getRetrofit(get()) }
     single { getApi(get()) }
+    single { getDB(androidContext()) }
     single<AlbumsRepository> { AlbumsRepositoryImpl(get(), get()) }
 
     //ViewModels
