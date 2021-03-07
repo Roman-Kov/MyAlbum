@@ -1,60 +1,56 @@
 package com.rojer_ko.myalbum.presentation.albums.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import com.rojer_ko.myalbum.R
+import com.rojer_ko.myalbum.presentation.base.BaseFragment
+import com.rojer_ko.myalbum.utils.Consts
+import com.rojer_ko.myalbum.utils.Errors
+import com.rojer_ko.myalbum.utils.showToast
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_photo.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class PhotoFragment : BaseFragment() {
+    override val layout = R.layout.fragment_photo
+    override val toolbarRes = R.id.photo_toolbar
+    override val toolbarTitleRes: Nothing? = null
+    override val toolbarMenuRes: Nothing? = null
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PhotoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class PhotoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var photoUrl: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun setToolbarTitle(toolbar: Toolbar) {
+        try {
+            val fullTitle = requireArguments().getString(Consts.PHOTO_TITLE)
+            toolbar.title = fullTitle
+        } catch (exception: IllegalStateException) {
+            Log.e("AlbumFragment", exception.toString())
+            showToast(Errors.UNKNOWN.text)
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_photo, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        getArgs()
+        loadPhoto()
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PhotoFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            PhotoFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun getArgs() {
+        try {
+            photoUrl = requireArguments().getString(Consts.PHOTO_URL)
+        } catch (exception: IllegalStateException) {
+            Log.e("AlbumFragment", exception.toString())
+            showToast(Errors.UNKNOWN.text)
+        }
+    }
+
+    private fun loadPhoto() {
+        Picasso.get()
+            .load(photoUrl)
+            .placeholder(R.drawable.ic_baseline_placeholder)
+            .error(R.drawable.ic_baseline_broken_image)
+            .into(photo_fullsize)
     }
 }

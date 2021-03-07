@@ -2,14 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/photo_container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
 
     <ImageView
         android:id="@+id/photo"
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_height"
-        android:layout_marginStart="@dimen/app_default_margin_start"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,9 +25,6 @@
         style="@style/Text18spSecondaryColorFontBoldStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
         android:paddingHorizontal="@dimen/app_default_padding"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,6 @@
     <View
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginHorizontal="@dimen/app_default_margin_horizontal"
         android:background="@color/app_default_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

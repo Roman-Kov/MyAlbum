@@ -32,7 +32,10 @@ class AlbumsFragment : BaseFragment() {
             val toAlbumFragmentBundle = Bundle()
             toAlbumFragmentBundle.putInt(Consts.ALBUM_ID, id)
             toAlbumFragmentBundle.putString(Consts.ALBUM_TITLE, title)
-            findNavController().navigate(R.id.action_albums_fragment_to_albumFragment, toAlbumFragmentBundle)
+            findNavController().navigate(
+                R.id.action_albums_fragment_to_albumFragment,
+                toAlbumFragmentBundle
+            )
         }
     }
 

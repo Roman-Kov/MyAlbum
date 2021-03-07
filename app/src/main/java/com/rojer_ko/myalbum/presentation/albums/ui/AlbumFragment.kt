@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rojer_ko.myalbum.R
 import com.rojer_ko.myalbum.data.model.PhotoDTO
@@ -30,7 +31,13 @@ class AlbumFragment : BaseFragment() {
     private val viewModel by viewModel<AlbumViewModel>()
     private val photoOnClick = object : PhotoContainer.ItemClick {
         override fun onClick(url: String, title: String) {
-            showToast(url)
+            val toPhotoFragmentBundle = Bundle()
+            toPhotoFragmentBundle.putString(Consts.PHOTO_URL, url)
+            toPhotoFragmentBundle.putString(Consts.PHOTO_TITLE, title)
+            findNavController().navigate(
+                R.id.action_albumFragment_to_photoFragment,
+                toPhotoFragmentBundle
+            )
         }
     }
     private var albumId = -1

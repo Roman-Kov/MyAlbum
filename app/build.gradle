@@ -95,6 +95,9 @@ dependencies {
     //Picasso
     implementation "com.squareup.picasso:picasso:$picasso_version"
 
+    //TouchImageView
+    implementation 'com.github.MikeOrtiz:TouchImageView:1.4.1'
+
     //Test
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

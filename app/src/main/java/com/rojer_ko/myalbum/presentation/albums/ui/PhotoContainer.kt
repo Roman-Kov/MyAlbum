@@ -20,7 +20,7 @@ class PhotoContainer(
         viewHolder.apply {
             loadPhoto(photo, photoThumbnailUrl)
             photo_title.text = photoTitle
-            photo_title.setOnClickListener {
+            photo_container.setOnClickListener {
                 onClick.onClick(photoUrl, photoTitle)
             }
         }
