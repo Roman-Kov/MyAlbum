@@ -6,11 +6,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface AlbumsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(album: SavedAlbum)
+    suspend fun insertAlbum(album: SavedAlbum)
 
     @Query("SELECT * from saved_albums ORDER BY id")
-    fun getItemList(): Flow<List<SavedAlbum>>
+    fun getAlbums(): Flow<List<SavedAlbum>>
 
     @Delete
-    suspend fun delete(album: SavedAlbum)
+    suspend fun deleteAlbum(album: SavedAlbum)
 }
