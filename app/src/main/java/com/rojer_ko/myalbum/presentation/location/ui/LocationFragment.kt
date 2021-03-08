@@ -39,7 +39,6 @@ class LocationFragment : BaseFragment() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == LOCATION_PERMISSIONS_REQUEST_CODE && grantResults.isNotEmpty()) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startLocate()
@@ -47,6 +46,7 @@ class LocationFragment : BaseFragment() {
                 showToast(getString(R.string.permissions_denied))
             }
         }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     private fun observeLocationServiceState() {
@@ -128,13 +128,10 @@ class LocationFragment : BaseFragment() {
     }
 
     private fun requestPermission() {
-        (activity as MainActivity).let {
-            ActivityCompat.requestPermissions(
-                it,
-                arrayOf(ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION),
-                LOCATION_PERMISSIONS_REQUEST_CODE
-            )
-        }
+        requestPermissions(
+            arrayOf(ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION),
+            LOCATION_PERMISSIONS_REQUEST_CODE
+        )
     }
 
     private fun setProgressBar() {
