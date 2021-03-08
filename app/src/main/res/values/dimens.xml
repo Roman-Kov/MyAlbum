@@ -8,6 +8,7 @@
     <dimen name="app_default_margin_horizontal">15dp</dimen>
     <dimen name="app_default_margin_double">30dp</dimen>
     <dimen name="app_default_margin_top">15dp</dimen>
+    <dimen name="app_default_margin_bottom">15dp</dimen>
     <dimen name="app_default_margin_end">15dp</dimen>
     <dimen name="app_default_margin_start">15dp</dimen>
 

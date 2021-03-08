@@ -26,5 +26,5 @@
     <!-- Location service -->
     <string name="location_service_notification_title">Location service</string>
     <string name="location_service_notification_text">Locate and play music</string>
-    <string name="location_text">0.0, 0.0</string>
+    <string name="init_location_text">0.0, 0.0</string>
 </resources>

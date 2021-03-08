@@ -57,6 +57,7 @@ class LocationFragment : BaseFragment() {
                     true -> btnToStop()
                     false -> btnToStart()
                 }
+                setProgressBar()
             })
     }
 
@@ -67,6 +68,7 @@ class LocationFragment : BaseFragment() {
                 val longitude = it.second
                 val coordinates = "$latitude, $longitude"
                 location_textview.text = coordinates
+                setProgressBar()
             })
     }
 
@@ -132,6 +134,14 @@ class LocationFragment : BaseFragment() {
                 arrayOf(ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION),
                 LOCATION_PERMISSIONS_REQUEST_CODE
             )
+        }
+    }
+
+    private fun setProgressBar() {
+        if (location_textview.text == getString(R.string.init_location_text) && isLocated) {
+            location_progress_bar.visibility = View.VISIBLE
+        } else if(location_progress_bar.visibility != View.GONE){
+            location_progress_bar.visibility = View.GONE
         }
     }
 }
