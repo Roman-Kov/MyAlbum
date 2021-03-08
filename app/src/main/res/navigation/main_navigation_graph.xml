@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/location_fragment"
-        android:name="com.rojer_ko.myalbum.presentation.location.LocationFragment"
+        android:name="com.rojer_ko.myalbum.presentation.location.ui.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
     <fragment
