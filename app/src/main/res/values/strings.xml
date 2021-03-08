@@ -1,0 +1,30 @@
+<resources>
+    <!-- Errors -->
+    <string name="data_error">Get data error</string>
+    <string name="network_unavailable_error">Check your internet connection</string>
+    <string name="unknown_error">Unknown error</string>
+
+    <!-- Main -->
+    <string name="app_name">MyAlbum</string>
+    <string name="albums">Albums</string>
+    <string name="saved_albums">Saved albums</string>
+    <string name="location">Location</string>
+
+    <!-- Album fragment -->
+    <string name="save_album">Save album</string>
+    <string name="album_saved">Album saved</string>
+
+    <!-- Saved albums fragment -->
+    <string name="album_removed">Album removed</string>
+    <string name="delete_string">DELETE</string>
+
+    <!-- Location fragment -->
+    <string name="start_locate">Start locate</string>
+    <string name="stop_locate">Stop locate</string>
+    <string name="permissions_denied">Permissions denied!</string>
+
+    <!-- Location service -->
+    <string name="location_service_notification_title">Location service</string>
+    <string name="location_service_notification_text">Locate and play music</string>
+    <string name="init_location_text">0.0, 0.0</string>
+</resources>

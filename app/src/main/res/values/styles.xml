@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text20spPrimaryColorFontBoldStyle">
+        <item name="android:textColor">@color/app_default_font_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/app_default_text_20</item>
+    </style>
+
+    <style name="Text18spSecondaryColorFontBoldStyle">
+        <item name="android:textColor">@color/app_default_font_secondary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/app_default_text_18</item>
+    </style>
+
+    <style name="Text20spSecondaryColorFontBoldStyle">
+        <item name="android:textColor">@color/app_default_font_secondary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/app_default_text_20</item>
+    </style>
+
+    <style name="Text30spSecondaryColorFontBoldStyle">
+        <item name="android:textColor">@color/app_default_font_secondary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/app_default_text_30</item>
+    </style>
+
+    <style name="Text20spWhiteColorFontBoldStyle">
+        <item name="android:textColor">@color/app_default_font_white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/app_default_text_20</item>
+    </style>
+</resources>
