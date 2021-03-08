@@ -24,4 +24,10 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/app_default_text_30</item>
     </style>
+
+    <style name="Text20spWhiteColorFontBoldStyle">
+        <item name="android:textColor">@color/app_default_font_white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/app_default_text_20</item>
+    </style>
 </resources>

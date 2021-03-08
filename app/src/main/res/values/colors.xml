@@ -8,8 +8,10 @@
     <color name="app_default_white">#FFFFFFFF</color>
     <color name="app_default_black">#FF000000</color>
     <color name="app_default_grey_light">#DFDBDB</color>
+    <color name="app_default_red">#C83939</color>
 
     <!-- default font colors -->
     <color name="app_default_font_primary">#FF7F11</color>
     <color name="app_default_font_secondary">#262626</color>
+    <color name="app_default_font_white">#FFFFFFFF</color>
 </resources>

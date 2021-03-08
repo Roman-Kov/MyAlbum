@@ -7,6 +7,11 @@
 
     <!-- Album fragment -->
     <string name="save_album">Save album</string>
+    <string name="album_saved">Album saved</string>
+
+    <!-- Saved albums fragment -->
+    <string name="album_removed">Album removed</string>
+    <string name="delete_string">DELETE</string>
 
     <!-- Errors -->
     <string name="data_error">Get data error</string>

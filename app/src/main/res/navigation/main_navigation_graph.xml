@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_location" />
     <fragment
         android:id="@+id/saved_albums_fragment"
-        android:name="com.rojer_ko.myalbum.presentation.savedAlbums.SavedAlbumsFragment"
+        android:name="com.rojer_ko.myalbum.presentation.savedAlbums.ui.SavedAlbumsFragment"
         android:label="fragment_saved_albums"
         tools:layout="@layout/fragment_saved_albums" />
     <fragment

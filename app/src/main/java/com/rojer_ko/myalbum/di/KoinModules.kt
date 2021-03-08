@@ -4,12 +4,16 @@ import android.content.Context
 import androidx.room.Room
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.rojer_ko.myalbum.data.network.*
+import com.rojer_ko.myalbum.data.repository.AlbumsDBRepositoryImpl
 import com.rojer_ko.myalbum.data.repository.AlbumsRepositoryImpl
 import com.rojer_ko.myalbum.data.retrofit.ApiService
+import com.rojer_ko.myalbum.data.room.AlbumsDao
 import com.rojer_ko.myalbum.data.room.DB
+import com.rojer_ko.myalbum.domain.contracts.AlbumsDBRepository
 import com.rojer_ko.myalbum.domain.contracts.AlbumsRepository
 import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumViewModel
 import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumsViewModel
+import com.rojer_ko.myalbum.presentation.savedAlbums.viewmodel.SavedAlbumsViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -52,8 +56,12 @@ private fun getApi(retrofit: Retrofit): ApiService {
     return retrofit.create(ApiService::class.java)
 }
 
-private fun getDB(context: Context): DB{
-    return Room.databaseBuilder(context, DB::class.java, "albumDB").build()
+private fun getDB(context: Context): DB {
+    return Room.databaseBuilder(context, DB::class.java, "albumsDB").build()
+}
+
+private fun getAlbumDao(db: DB): AlbumsDao {
+    return db.albumsDao()
 }
 
 val appModule = module {
@@ -62,9 +70,12 @@ val appModule = module {
     single { getRetrofit(get()) }
     single { getApi(get()) }
     single { getDB(androidContext()) }
+    single { getAlbumDao(get()) }
     single<AlbumsRepository> { AlbumsRepositoryImpl(get(), get()) }
+    single<AlbumsDBRepository> { AlbumsDBRepositoryImpl(get()) }
 
     //ViewModels
     viewModel { AlbumsViewModel(get()) }
-    viewModel { AlbumViewModel(get()) }
+    viewModel { AlbumViewModel(get(), get()) }
+    viewModel { SavedAlbumsViewModel(get()) }
 }

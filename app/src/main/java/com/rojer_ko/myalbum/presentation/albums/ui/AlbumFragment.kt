@@ -2,12 +2,14 @@ package com.rojer_ko.myalbum.presentation.albums.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rojer_ko.myalbum.R
 import com.rojer_ko.myalbum.data.model.PhotoDTO
+import com.rojer_ko.myalbum.data.room.SavedAlbum
 import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumViewModel
 import com.rojer_ko.myalbum.presentation.base.BaseFragment
 import com.rojer_ko.myalbum.presentation.converters.ErrorStringConverter
@@ -41,28 +43,33 @@ class AlbumFragment : BaseFragment() {
         }
     }
     private var albumId = -1
+    private var albumTitle = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         getArgs()
+        super.onViewCreated(view, savedInstanceState)
         observePhotosResult()
         refreshPhotos()
     }
 
     override fun setToolbarTitle(toolbar: Toolbar) {
-        try {
-            val fullTitle = requireArguments().getString(Consts.ALBUM_TITLE)
-            toolbar.title = fullTitle
-        } catch (exception: IllegalStateException) {
-            Log.e("AlbumFragment", exception.toString())
-            showToast(Errors.UNKNOWN.text)
+        toolbar.title = albumTitle
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.save_album -> {
+                saveAlbum()
+            }
+            else -> Unit
         }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun getArgs() {
         try {
             albumId = requireArguments().getInt(Consts.ALBUM_ID)
+            albumTitle = requireArguments().getString(Consts.ALBUM_TITLE) ?: ""
         } catch (exception: IllegalStateException) {
             Log.e("AlbumFragment", exception.toString())
             showToast(Errors.UNKNOWN.text)
@@ -112,6 +119,14 @@ class AlbumFragment : BaseFragment() {
                 false
             )
             adapter = groupAdapter
+        }
+    }
+
+    private fun saveAlbum() {
+        if (albumId != -1) {
+            val album = SavedAlbum(albumId, albumTitle)
+            viewModel.insertAlbum(album)
+            showToast(getString(R.string.album_saved))
         }
     }
 }
