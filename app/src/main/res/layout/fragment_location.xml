@@ -25,11 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/app_default_margin_horizontal"
         android:textAlignment="center"
+        android:text="@string/location_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="0000.0001, 0000.0001" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/start_location_btn"
