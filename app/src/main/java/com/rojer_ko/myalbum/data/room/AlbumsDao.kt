@@ -8,8 +8,14 @@ interface AlbumsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAlbum(album: SavedAlbum)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertPhotos(photos: List<SavedPhoto>)
+
     @Query("SELECT * from saved_albums ORDER BY id")
-    fun getAlbums(): Flow<List<SavedAlbum>>
+    fun getSavedAlbums(): Flow<List<SavedAlbum>>
+
+    @Query("SELECT * from saved_photos WHERE id = :albumId ORDER BY id")
+    fun getSavedPhotos(albumId: Int): Flow<List<SavedPhoto>>
 
     @Delete
     suspend fun deleteAlbum(album: SavedAlbum)

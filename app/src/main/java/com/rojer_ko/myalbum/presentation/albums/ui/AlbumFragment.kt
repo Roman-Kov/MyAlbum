@@ -14,6 +14,7 @@ import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumViewModel
 import com.rojer_ko.myalbum.presentation.base.BaseFragment
 import com.rojer_ko.myalbum.presentation.converters.ErrorStringConverter
 import com.rojer_ko.myalbum.presentation.converters.PhotoItemConverter
+import com.rojer_ko.myalbum.presentation.converters.PhotosToSavedPhotosConverter
 import com.rojer_ko.myalbum.utils.Consts
 import com.rojer_ko.myalbum.utils.DataResult
 import com.rojer_ko.myalbum.utils.Errors
@@ -126,12 +127,15 @@ class AlbumFragment : BaseFragment() {
 
     private fun saveAlbum() {
         if (albumId != -1) {
-            if(photos.isEmpty()){
-                showToast(getString(R.string.photos_not_loaded))
-            }
             val album = SavedAlbum(albumId, albumTitle)
             viewModel.insertAlbum(album)
             showToast(getString(R.string.album_saved))
+            if (photos.isNotEmpty()) {
+                val savedPhotos = PhotosToSavedPhotosConverter.convert(photos)
+                viewModel.insertPhotos(savedPhotos)
+            } else {
+                showToast(getString(R.string.photos_not_loaded))
+            }
         }
     }
 }

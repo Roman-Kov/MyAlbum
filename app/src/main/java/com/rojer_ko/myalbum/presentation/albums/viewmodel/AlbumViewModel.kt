@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rojer_ko.myalbum.data.model.PhotoDTO
 import com.rojer_ko.myalbum.data.room.SavedAlbum
+import com.rojer_ko.myalbum.data.room.SavedPhoto
 import com.rojer_ko.myalbum.domain.contracts.AlbumsDBRepository
 import com.rojer_ko.myalbum.domain.contracts.AlbumsRepository
 import com.rojer_ko.myalbum.utils.DataResult
@@ -38,6 +39,12 @@ class AlbumViewModel(
     fun insertAlbum(album: SavedAlbum) {
         viewModelScope.launch(Dispatchers.IO + exceptionHandler) {
             dbRepository.insertAlbum(album)
+        }
+    }
+
+    fun insertPhotos(photos: List<SavedPhoto>) {
+        viewModelScope.launch(Dispatchers.IO + exceptionHandler) {
+            dbRepository.insertPhotos(photos)
         }
     }
 }
