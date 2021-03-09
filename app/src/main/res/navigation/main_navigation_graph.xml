@@ -24,7 +24,12 @@
         android:id="@+id/saved_albums_fragment"
         android:name="com.rojer_ko.myalbum.presentation.savedAlbums.ui.SavedAlbumsFragment"
         android:label="fragment_saved_albums"
-        tools:layout="@layout/fragment_saved_albums" />
+        tools:layout="@layout/fragment_saved_albums">
+        <action
+            android:id="@+id/action_saved_albums_fragment_to_savedAlbumFragment"
+            app:destination="@id/savedAlbumFragment"
+            app:launchSingleTop="true" />
+    </fragment>
     <fragment
         android:id="@+id/albumFragment"
         android:name="com.rojer_ko.myalbum.presentation.albums.ui.AlbumFragment"
@@ -40,4 +45,9 @@
         android:name="com.rojer_ko.myalbum.presentation.albums.ui.PhotoFragment"
         android:label="fragment_photo"
         tools:layout="@layout/fragment_photo" />
+    <fragment
+        android:id="@+id/savedAlbumFragment"
+        android:name="com.rojer_ko.myalbum.presentation.savedAlbums.ui.SavedAlbumFragment"
+        android:label="fragment_saved_album"
+        tools:layout="@layout/fragment_saved_album" />
 </navigation>

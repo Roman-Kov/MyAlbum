@@ -9,7 +9,6 @@ import java.net.Socket
 class NetworkManager(private val context: Context) {
 
     companion object {
-
         private const val CONNECTION_PORT = 443
         private const val CONNECTION_TIMEOUT = 5000
     }
