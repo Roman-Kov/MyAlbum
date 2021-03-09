@@ -9,7 +9,8 @@ import com.rojer_ko.myalbum.data.room.SavedAlbum
 import kotlinx.android.synthetic.main.item_saved_albums.view.*
 
 class SavedAlbumsAdapter(
-    private val itemRemoveListener: OnItemRemoveListener
+    private val itemRemoveListener: OnItemRemoveListener,
+    private val itemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<SavedAlbumsAdapter.SubscribeViewHolder>(),
     SwipeToDeleteCallback.ItemTouchHelperAdapter {
 
@@ -40,10 +41,17 @@ class SavedAlbumsAdapter(
     inner class SubscribeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(album: SavedAlbum) {
             itemView.saved_album_title.text = album.title
+            itemView.saved_album_title.setOnClickListener {
+                itemClickListener.onClick(album.id, album.title)
+            }
         }
     }
 
     interface OnItemRemoveListener {
         fun itemRemove(id: Int, position: Int)
+    }
+
+    interface OnItemClickListener {
+        fun onClick(id: Int, title: String)
     }
 }

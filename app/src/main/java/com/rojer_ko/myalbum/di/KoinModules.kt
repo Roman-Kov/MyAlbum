@@ -13,6 +13,7 @@ import com.rojer_ko.myalbum.domain.contracts.AlbumsDBRepository
 import com.rojer_ko.myalbum.domain.contracts.AlbumsRepository
 import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumViewModel
 import com.rojer_ko.myalbum.presentation.albums.viewmodel.AlbumsViewModel
+import com.rojer_ko.myalbum.presentation.savedAlbums.viewmodel.SavedAlbumViewModel
 import com.rojer_ko.myalbum.presentation.savedAlbums.viewmodel.SavedAlbumsViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -78,4 +79,5 @@ val appModule = module {
     viewModel { AlbumsViewModel(get()) }
     viewModel { AlbumViewModel(get(), get()) }
     viewModel { SavedAlbumsViewModel(get()) }
+    viewModel { SavedAlbumViewModel(get()) }
 }

@@ -14,7 +14,7 @@ interface AlbumsDao {
     @Query("SELECT * from saved_albums ORDER BY id")
     fun getSavedAlbums(): Flow<List<SavedAlbum>>
 
-    @Query("SELECT * from saved_photos WHERE id = :albumId ORDER BY id")
+    @Query("SELECT * from saved_photos WHERE albumId = :albumId ORDER BY id")
     fun getSavedPhotos(albumId: Int): Flow<List<SavedPhoto>>
 
     @Delete

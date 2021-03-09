@@ -87,7 +87,7 @@ class AlbumFragment : BaseFragment() {
                 is DataResult.Success<List<PhotoDTO>> -> {
                     album_progress_bar.visibility = View.GONE
                     photos = it.data
-                    val data = PhotoItemConverter.convertToContainer(it.data, photoOnClick)
+                    val data = PhotoItemConverter.convertPhotoDTOToContainer(it.data, photoOnClick)
                     initRecyclerView(data)
                 }
                 is DataResult.Error -> {
