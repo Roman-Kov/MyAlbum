@@ -16,11 +16,13 @@ import android.os.Looper
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.NavDeepLinkBuilder
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.rojer_ko.myalbum.R
+import com.rojer_ko.myalbum.presentation.main.MainActivity
 import com.rojer_ko.myalbum.utils.Errors
 
 class LocationService : Service() {
@@ -73,12 +75,11 @@ class LocationService : Service() {
 
     private fun startLocationService() {
 
-        val pendingIntent = PendingIntent.getActivity(
-            applicationContext,
-            0,
-            Intent(),
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
+        val pendingIntent = NavDeepLinkBuilder(applicationContext)
+            .setComponentName(MainActivity::class.java)
+            .setGraph(R.navigation.main_navigation_graph)
+            .setDestination(R.id.location_fragment)
+            .createPendingIntent()
 
         val notificationManager: NotificationManager =
             this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

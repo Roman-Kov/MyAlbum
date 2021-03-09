@@ -44,6 +44,7 @@ class AlbumFragment : BaseFragment() {
     }
     private var albumId = -1
     private var albumTitle = ""
+    private var photos: List<PhotoDTO> = mutableListOf()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         getArgs()
@@ -84,6 +85,7 @@ class AlbumFragment : BaseFragment() {
                 }
                 is DataResult.Success<List<PhotoDTO>> -> {
                     album_progress_bar.visibility = View.GONE
+                    photos = it.data
                     val data = PhotoItemConverter.convertToContainer(it.data, photoOnClick)
                     initRecyclerView(data)
                 }
@@ -124,6 +126,9 @@ class AlbumFragment : BaseFragment() {
 
     private fun saveAlbum() {
         if (albumId != -1) {
+            if(photos.isEmpty()){
+                showToast(getString(R.string.photos_not_loaded))
+            }
             val album = SavedAlbum(albumId, albumTitle)
             viewModel.insertAlbum(album)
             showToast(getString(R.string.album_saved))
